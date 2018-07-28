@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+    http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+    <!-- 配置持久化单元 -->
+    <persistence-unit name="myJPAUnit" transaction-type="RESOURCE_LOCAL">
+        <!-- 配置jpa规范的提供商
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>--><!-- 不写也行 -->
+
+        <!-- 配置注解的实体类位置
+        <class>com.itheima.domain.Customer</class> --><!-- 不写也行 -->
+
+        <!-- 配置连接数据库相关的信息：该信息都是hibernate提供的，请去hibernate的配置文件中找。
+            配置文件的位置是hibernate开发包中的project/ect/hibernate.properties文件中
+         -->
+        <properties>
+            <!-- 连接数据库的四个必备信息 -->
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/day01"/>
+            <property name="hibernate.connection.username" value="root"/>
+            <property name="hibernate.connection.password" value="root"/>
+            <!-- 数据库方言 -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+            <!-- 显示sql语句 -->
+            <property name="hibernate.show_sql" value="true"/>
+            <!-- 格式化sql语句 -->
+            <property name="hibernate.format_sql" value="true"/>
+            <!-- 自动生成DDL语句的方式（策略）
+                update的含义是：update的含义是：有表就直接使用，没表就创建表。
+            -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+
+        </properties>
+    </persistence-unit>
+</persistence>
