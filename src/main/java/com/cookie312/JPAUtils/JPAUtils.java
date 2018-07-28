@@ -15,6 +15,7 @@ public class JPAUtils {
 	static{
 		//读取配置文件获取配置文件
 		factory = Persistence.createEntityManagerFactory("myJPAUnit");
+		System.out.println("我是分支");
 	}
 
 	//得到操作数据的对象
